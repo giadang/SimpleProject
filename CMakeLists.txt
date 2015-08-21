@@ -1,0 +1,65 @@
+cmake_minimum_required(VERSION 2.8)
+
+project(SimpleProject)
+
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+set(SOURCE ${PROJECT_SOURCE_DIR}/src/SimpleProject.cpp)
+
+if (WIN32)
+    remove_definitions(-D_UNICODE -DUNICODE)
+endif()
+    
+include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories(${PROJECT_SOURCE_DIR}/opencv/include)
+include_directories(${PROJECT_SOURCE_DIR}/build/bin/opencv/include)
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/calib3d/include)
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudafilters/include)    
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudev/include)
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/java/include)       
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/superres/include)   
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudaimgproc/include)    
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/features2d/include) 
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/ml/include)
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/ts/include)
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/core/include)
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudalegacy/include)     
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/flann/include)       
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/objdetect/include)  
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/video/include)
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudaarithm/include)      
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudaobjdetect/include)  
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/hal/include)         
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/photo/include)      
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/videoio/include)
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudabgsegm/include)      
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudaoptflow/include)    
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/highgui/include)     
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/python/include)     
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/videostab/include)
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudacodec/include)       
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudastereo/include)     
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/imgcodecs/include)   
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/shape/include)      
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/viz/include)
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudafeatures2d/include)  
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/cudawarping/include)    
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/imgproc/include)     
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/stitching/include)  
+include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/world/include)
+
+add_subdirectory(${PROJECT_SOURCE_DIR}/opencv ${PROJECT_SOURCE_DIR}/build/bin/opencv)
+
+set (OPENCV_LINK_LIBS
+        opencv_core
+        opencv_hal
+        opencv_video
+        opencv_imgproc
+        opencv_objdetect
+        opencv_calib3d
+    )
+
+add_executable(SimpleProject ${SOURCE})	
+	
+target_link_libraries(SimpleProject ${OPENCV_LINK_LIBS})
+

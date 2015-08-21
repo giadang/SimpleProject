@@ -1,0 +1,10 @@
+*.DS_Store
+*.ncb
+*.opensdf
+*.sdf
+*.suo
+*.user
+*.zip
+*~
+
+build
