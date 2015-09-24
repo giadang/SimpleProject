@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(SimpleProject)
-
-include_directories(${PROJECT_SOURCE_DIR}/include)
-
-set(SOURCE ${PROJECT_SOURCE_DIR}/src/SimpleProject.cpp)
+project(SP)
 
 if (WIN32)
     remove_definitions(-D_UNICODE -DUNICODE)
@@ -49,17 +45,7 @@ include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/stitching/include)
 include_directories(${PROJECT_SOURCE_DIR}/opencv/modules/world/include)
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/opencv ${PROJECT_SOURCE_DIR}/build/bin/opencv)
+add_subdirectory(${PROJECT_SOURCE_DIR}/SmpPrj ${PROJECT_SOURCE_DIR}/build/bin/SmpPrj)
 
-set (OPENCV_LINK_LIBS
-        opencv_core
-        opencv_hal
-        opencv_video
-        opencv_imgproc
-        opencv_objdetect
-        opencv_calib3d
-    )
 
-add_executable(SimpleProject ${SOURCE})	
-	
-target_link_libraries(SimpleProject ${OPENCV_LINK_LIBS})
 
