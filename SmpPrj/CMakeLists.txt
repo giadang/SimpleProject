@@ -8,7 +8,6 @@ set(SOURCE ${PROJECT_SOURCE_DIR}/src/SimpleProject.cpp)
 
 set (OPENCV_LINK_LIBS
         opencv_core
-        opencv_hal
         opencv_video
         opencv_imgproc
         opencv_objdetect
